@@ -1,0 +1,160 @@
+@startuml
+
+/' diagram meta data start
+config=StructureConfiguration;
+{
+  "projectClassification": {
+    "searchMode": "OpenProject", // OpenProject, AllProjects
+    "includedProjects": "",
+    "pathEndKeywords": "*.impl",
+    "isClientPath": "",
+    "isClientName": "",
+    "isTestPath": "",
+    "isTestName": "",
+    "isMappingPath": "",
+    "isMappingName": "",
+    "isDataAccessPath": "",
+    "isDataAccessName": "",
+    "isDataStructurePath": "",
+    "isDataStructureName": "",
+    "isInterfaceStructuresPath": "",
+    "isInterfaceStructuresName": "",
+    "isEntryPointPath": "",
+    "isEntryPointName": "",
+    "treatFinalFieldsAsMandatory": false
+  },
+  "graphRestriction": {
+    "classPackageExcludeFilter": "",
+    "classPackageIncludeFilter": "",
+    "classNameExcludeFilter": "",
+    "classNameIncludeFilter": "",
+    "methodNameExcludeFilter": "",
+    "methodNameIncludeFilter": "",
+    "removeByInheritance": "", // inheritance/annotation based filtering is done in a second step
+    "removeByAnnotation": "",
+    "removeByClassPackage": "", // cleanup the graph after inheritance/annotation based filtering is done
+    "removeByClassName": "",
+    "cutMappings": false,
+    "cutEnum": true,
+    "cutTests": true,
+    "cutClient": true,
+    "cutDataAccess": false,
+    "cutInterfaceStructures": false,
+    "cutDataStructures": false,
+    "cutGetterAndSetter": true,
+    "cutConstructors": true
+  },
+  "graphTraversal": {
+    "forwardDepth": 6,
+    "backwardDepth": 6,
+    "classPackageExcludeFilter": "",
+    "classPackageIncludeFilter": "",
+    "classNameExcludeFilter": "",
+    "classNameIncludeFilter": "",
+    "methodNameExcludeFilter": "",
+    "methodNameIncludeFilter": "",
+    "hideMappings": false,
+    "hideDataStructures": false,
+    "hidePrivateMethods": true,
+    "hideInterfaceCalls": true, // indirection: implementation -> interface (is hidden) -> implementation
+    "onlyShowApplicationEntryPoints": false, // root node is included
+    "useMethodCallsForStructureDiagram": "ForwardOnly" // ForwardOnly, BothDirections, No
+  },
+  "details": {
+    "aggregation": "GroupByClass", // ByClass, GroupByClass, None
+    "showClassGenericTypes": true,
+    "showMethods": true,
+    "showMethodParameterNames": true,
+    "showMethodParameterTypes": true,
+    "showMethodReturnType": true,
+    "showPackageLevels": 2,
+    "showDetailedClassStructure": true
+  },
+  "rootClass": "org.csu.softwaremetric.service.InfoFlowService",
+  "extensionCallbackMethod": "" // qualified.class.name#methodName - signature: public static String method(String)
+}
+diagram meta data end '/
+
+
+
+digraph g {
+    rankdir="TB"
+    splines=polyline
+    
+
+'nodes 
+subgraph cluster_98821 { 
+   	label=csu
+	labeljust=l
+	fillcolor="#ececec"
+	style=filled
+   
+   subgraph cluster_2070025952 { 
+   	label=softwaremetric
+	labeljust=l
+	fillcolor="#d8d8d8"
+	style=filled
+   
+   InfoFlow773858791[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)InfoFlow</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >-   complexity: int [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   endLine: int [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   flowIn: int [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   flowOut: int [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   length: int [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   methodName: String [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   shepperdComplexity: int [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   source: String [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   startLine: int [1]</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" ># canEqual(other: Object): boolean</TD></TR>
+<TR><TD ALIGN="LEFT" >+ updateData()</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+
+InfoFlowController1295514720[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)InfoFlowController</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >#   dest: File [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   infoFlowService: InfoFlowService [1]</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ getRawCode(code: String): CommonResponse</TD></TR>
+<TR><TD ALIGN="LEFT" ># uploadTXT(file: MultipartFile): CommonResponse</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+
+InfoFlowService1795802417[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)InfoFlowService</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >- findCalledMethods(method: InfoFlow, allMethods: List&lt;InfoFlow&gt;): Set&lt;String&gt;</TD></TR>
+<TR><TD ALIGN="LEFT" >+ getInfoFlows(filename: String): List&lt;InfoFlow&gt;</TD></TR>
+<TR><TD ALIGN="LEFT" >- parseMethods(source: String): List&lt;InfoFlow&gt;</TD></TR>
+<TR><TD ALIGN="LEFT" >- readFileToString(filePath: String): String</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+} 
+} 
+
+'edges    
+InfoFlowController1295514720 -> InfoFlowService1795802417[label="infoFlowService
+[1]"];
+InfoFlowService1795802417 -> InfoFlow773858791[label="getInfoFlows() -> updateData()"];
+    
+}
+@enduml

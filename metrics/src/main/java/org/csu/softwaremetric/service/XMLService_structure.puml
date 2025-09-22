@@ -1,0 +1,233 @@
+@startuml
+
+/' diagram meta data start
+config=StructureConfiguration;
+{
+  "projectClassification": {
+    "searchMode": "OpenProject", // OpenProject, AllProjects
+    "includedProjects": "",
+    "pathEndKeywords": "*.impl",
+    "isClientPath": "",
+    "isClientName": "",
+    "isTestPath": "",
+    "isTestName": "",
+    "isMappingPath": "",
+    "isMappingName": "",
+    "isDataAccessPath": "",
+    "isDataAccessName": "",
+    "isDataStructurePath": "",
+    "isDataStructureName": "",
+    "isInterfaceStructuresPath": "",
+    "isInterfaceStructuresName": "",
+    "isEntryPointPath": "",
+    "isEntryPointName": "",
+    "treatFinalFieldsAsMandatory": false
+  },
+  "graphRestriction": {
+    "classPackageExcludeFilter": "",
+    "classPackageIncludeFilter": "",
+    "classNameExcludeFilter": "",
+    "classNameIncludeFilter": "",
+    "methodNameExcludeFilter": "",
+    "methodNameIncludeFilter": "",
+    "removeByInheritance": "", // inheritance/annotation based filtering is done in a second step
+    "removeByAnnotation": "",
+    "removeByClassPackage": "", // cleanup the graph after inheritance/annotation based filtering is done
+    "removeByClassName": "",
+    "cutMappings": false,
+    "cutEnum": true,
+    "cutTests": true,
+    "cutClient": true,
+    "cutDataAccess": false,
+    "cutInterfaceStructures": false,
+    "cutDataStructures": false,
+    "cutGetterAndSetter": true,
+    "cutConstructors": true
+  },
+  "graphTraversal": {
+    "forwardDepth": 6,
+    "backwardDepth": 6,
+    "classPackageExcludeFilter": "",
+    "classPackageIncludeFilter": "",
+    "classNameExcludeFilter": "",
+    "classNameIncludeFilter": "",
+    "methodNameExcludeFilter": "",
+    "methodNameIncludeFilter": "",
+    "hideMappings": false,
+    "hideDataStructures": false,
+    "hidePrivateMethods": true,
+    "hideInterfaceCalls": true, // indirection: implementation -> interface (is hidden) -> implementation
+    "onlyShowApplicationEntryPoints": false, // root node is included
+    "useMethodCallsForStructureDiagram": "ForwardOnly" // ForwardOnly, BothDirections, No
+  },
+  "details": {
+    "aggregation": "GroupByClass", // ByClass, GroupByClass, None
+    "showClassGenericTypes": true,
+    "showMethods": true,
+    "showMethodParameterNames": true,
+    "showMethodParameterTypes": true,
+    "showMethodReturnType": true,
+    "showPackageLevels": 2,
+    "showDetailedClassStructure": true
+  },
+  "rootClass": "org.csu.softwaremetric.service.XMLService",
+  "extensionCallbackMethod": "" // qualified.class.name#methodName - signature: public static String method(String)
+}
+diagram meta data end '/
+
+
+
+digraph g {
+    rankdir="TB"
+    splines=polyline
+    
+
+'nodes 
+subgraph cluster_98821 { 
+   	label=csu
+	labeljust=l
+	fillcolor="#ececec"
+	style=filled
+   
+   subgraph cluster_2070025952 { 
+   	label=softwaremetric
+	labeljust=l
+	fillcolor="#d8d8d8"
+	style=filled
+   
+   Attribute773858791[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)Attribute</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >-   name: String [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   visibility: String [0..1]</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" ># canEqual(other: Object): boolean</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+
+Classes773858791[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)Classes</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >-   associations: List&lt;String&gt; [0..*]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   attributes: List&lt;Attribute&gt; [0..*]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   children: List&lt;Classes&gt; [0..*]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   dependencies: List&lt;String&gt; [0..*]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   father: Classes [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   generalization: String [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   id: String [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   name: String [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   operations: List&lt;Operation&gt; [0..*]</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ addAttribute(attribute: Attribute)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ addChildren(targetClass: Classes)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ addOperation(operation: Operation)</TD></TR>
+<TR><TD ALIGN="LEFT" ># canEqual(other: Object): boolean</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+
+Operation773858791[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)Operation</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >-   name: String [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   parameters: List&lt;Parameter&gt; [0..*]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   visibility: String [0..1]</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" ># canEqual(other: Object): boolean</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+
+Parameter773858791[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)Parameter</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >-   name: String [0..1]</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" ># canEqual(other: Object): boolean</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+
+XMLController1295514720[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)XMLController</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >#   dest: File [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >#   infoService: InfoService [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >#   xmlService: XMLService [1]</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ GetBasicInfo(): CommonResponse&lt;List&lt;BasicInfo&gt;&gt;</TD></TR>
+<TR><TD ALIGN="LEFT" >+ GetCKvalue(): CommonResponse</TD></TR>
+<TR><TD ALIGN="LEFT" >+ GetLKvalue(): CommonResponse</TD></TR>
+<TR><TD ALIGN="LEFT" >+ uploadXML(file: MultipartFile): CommonResponse</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+
+XMLService1795802417[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)XMLService</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ getAssociation(filename: String): List&lt;Association&gt;</TD></TR>
+<TR><TD ALIGN="LEFT" >+ getDependency(filename: String): List&lt;Dependency&gt;</TD></TR>
+<TR><TD ALIGN="LEFT" >+ getMethod(filename: String): List&lt;Classes&gt;</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+
+XMLUtil959476211[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)XMLUtil</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ analysisXML(element: Element, classList: List&lt;Classes&gt;, associationList: List&lt;Association&gt;, dependencyList: List&lt;Dependency&gt;)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ clean(list1: List&lt;Classes&gt;)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ getGeneral(element: Element): String</TD></TR>
+<TR><TD ALIGN="LEFT" >+ getID(element: Element): String</TD></TR>
+<TR><TD ALIGN="LEFT" >+ getName(element: Element): String</TD></TR>
+<TR><TD ALIGN="LEFT" >+ getType(element: Element): String</TD></TR>
+<TR><TD ALIGN="LEFT" >+ getVisibility(element: Element): String</TD></TR>
+<TR><TD ALIGN="LEFT" >+ load(filename: String): Document</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+} 
+} 
+
+'edges    
+Classes773858791 -> Attribute773858791[label="attributes
+[0..*]"];
+Classes773858791 -> Operation773858791[label="operations
+[0..*]"];
+Operation773858791 -> Parameter773858791[label="parameters
+[0..*]"];
+XMLController1295514720 -> XMLService1795802417[label="xmlService
+[1]"];
+    
+}
+@enduml
